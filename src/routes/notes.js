@@ -5,12 +5,12 @@ const controller = require("../controller/notesController");
 
 router.get("/create",controller.show);
 
-router.get("/new",controller.new);
+router.post("/create",controller.new);
 
 router.get("/delete",controller.delete)
 
-router.get("/old",controller.showOld);
+router.get("/update",controller.old);
 
-router.get("/update",controller.update);
+router.post("/update",controller.update);
 
 module.exports = router;

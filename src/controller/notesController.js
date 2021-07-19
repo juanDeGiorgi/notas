@@ -10,10 +10,10 @@ module.exports = {
         let ultimoId = (db.length - 1)
         let nota ={
             id : (db[ultimoId].id + 1),
-            image : req.query.image,
-            titulo : req.query.titulo,
-            autor : req.query.autor,
-            descripcion : req.query.descripcion,
+            image : req.body.image,
+            titulo : req.body.titulo,
+            autor : req.body.autor,
+            descripcion : req.body.descripcion,
         }
         db.push(nota);
         fs.writeFileSync(path.join(__dirname,"../data/notas.json"),JSON.stringify(db),"UTF-8");
@@ -28,7 +28,7 @@ module.exports = {
         res.redirect("/");
     },
 
-    showOld : (req,res) =>{
+    old : (req,res) =>{
         res.render("notes.ejs",{
             dbImages : dbImages,
             nota : db.find(e => e.id == req.query.id)
@@ -37,11 +37,11 @@ module.exports = {
 
     update : (req,res) =>{
         db.forEach(e => {
-            if(e.id === Number(req.query.id)){
-                e.image = req.query.image
-                e.titulo = req.query.titulo
-                e.autor = req.query.autor
-                e.descripcion = req.query.descripcion
+            if(e.id === Number(req.body.id)){
+                e.image = req.body.image
+                e.titulo = req.body.titulo
+                e.autor = req.body.autor
+                e.descripcion = req.body.descripcion
             }
         });
         fs.writeFileSync(path.join(__dirname,"../data/notas.json"),JSON.stringify(db),"UTF-8");

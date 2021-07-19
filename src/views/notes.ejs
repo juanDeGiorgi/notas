@@ -9,7 +9,7 @@
           <h2 class="titulo"><%= (typeof nota != "undefined") ? `Modificar nota` : "Crear nota" %></h2>
         </div>
         <div class="row">
-          <form action="<%= (typeof nota != "undefined") ? `/notes/update` : "/notes/new" %>">
+          <form enctype="application/x-www-form-urlencoded" action="<%= (typeof nota != "undefined") ? `/notes/update` : "/notes/create" %>" method="POST">
             <div class="mb-3 d-radio">
                 <label class="form-label t-check">Imagen</label>
                 <%dbImages.forEach(e =>{%>
