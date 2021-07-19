@@ -19,8 +19,12 @@
     display: inline-block;
 }
 
+.notes main form .checkLabel{
+    height: 100%;
+}
+
 .notes main form .c-check .checkButton {
-    height: 15vw;
+    height: 21vw;
 }
 
 .notes main form .form-text{
