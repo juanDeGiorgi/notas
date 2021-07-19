@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include("./partials/head.ejs")%>
+<body class="home">
+    <%- include("./partials/header.ejs")%>
+    <main>
+      <div class="container">
+        <div>
+          <h2 class="titulo">Notas agregadas</h2>
+        </div>
+        <div class="row">
+          <%db.forEach(e =>{%>
+            <div class="col">
+              <div class="card nota">
+                  <img src="/images/<%=e.image%>" class="card-img-top" alt="..." style="height: 35%;">
+                <div class="card-body" style="height: 65%;">
+                  <h5 class="card-title"><%=e.titulo%></h5>
+                  <span>@<%=e.autor%></span>
+                  <div class="descripcion">
+                    <p class="card-text"><%=e.descripcion%></p>
+                  </div>
+                  <a href="/notes/old?id=<%=e.id%>" class="btn btn-primary">Modificar</a>
+                  <a href="/notes/delete?id=<%=e.id%>" class="btn btn-danger">Borrar</a>
+                </div>
+              </div>
+            </div>
+          <%})%>
+        </div>
+      </div>
+    </main>
+    <%- include("./partials/footer.ejs")%>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "practicaexpress",
+  "version": "1.0.0",
+  "description": "Cpractica express",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "author": "juan de giorgi",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.9"
+  }
+}

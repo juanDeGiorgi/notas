@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include("./partials/head.ejs")%>
+<body class="notes">
+    <%- include("./partials/header.ejs")%>
+    <main>
+      <div class="container">
+        <div>
+          <h2 class="titulo"><%= (typeof nota != "undefined") ? `Modificar nota` : "Crear nota" %></h2>
+        </div>
+        <div class="row">
+          <form action="<%= (typeof nota != "undefined") ? `/notes/update` : "/notes/new" %>">
+            <div class="mb-3 d-radio">
+                <label class="form-label t-check">Imagen</label>
+                <%dbImages.forEach(e =>{%>
+                  <div class="form-check c-check">
+                    <input class="form-check-input check" type="radio" name="image" id="<%=e.nombre%>" value="<%=e.nombre%>" <%= typeof nota != "undefined" && nota.image === e.nombre? "checked" : ""%>>
+                    <button type="button" class="checkButton">
+                        <label class="checkLabel" for="<%=e.nombre%>">
+                        <img src="/images/<%=e.nombre%>" alt="paisaje" width="100%" height="100%">
+                      </label>
+                      </button>
+                  </div>
+                <%})%>
+            </div>
+            <div class="form-info">
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Titulo</label>
+                <input class="form-control" type="text" aria-label="default input example" name="titulo" value="<%= typeof nota != "undefined" && nota.titulo ? nota.titulo : ""%>" required>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Autor</label>
+                <input class="form-control" type="text" aria-label="default input example" name="autor" value="<%= typeof nota != "undefined" && nota.autor ? nota.autor : ""%>" required>
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Descripcion</label>
+                <textarea class="form-control form-text" id="exampleFormControlTextarea1" rows="5" maxlength="218" name="descripcion" required><%= (typeof nota != "undefined" && nota.descripcion) ? nota.descripcion : ""%></textarea>
+              </div>
+
+              <input type="text" name="id" value="<%= (typeof nota != "undefined") ? nota.id : ""%>" style="display:none;">
+
+              <div class="c-bottom">
+                <button type="submit" class="btn btn-primary"><%= (typeof nota != "undefined") ? "Modificar" : "Crear" %></button>
+                <a type="button" class="btn btn-danger" href="/">Cancelar</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+   <%- include("./partials/footer.ejs")%>
+</body>
+</html>

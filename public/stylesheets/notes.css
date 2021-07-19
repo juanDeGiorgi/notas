@@ -1,0 +1,78 @@
+
+.notes main{
+    width: 90%;
+    margin: auto;
+}
+
+ .notes main .titulo{
+    margin: 5.5vw 0;
+}
+
+.notes main form .t-check{
+    display: block;
+    margin-bottom: 4.5vw;
+
+}
+
+.notes main form .c-check {
+    width: 49.1%;
+    display: inline-block;
+}
+
+.notes main form .c-check .checkButton {
+    height: 15vw;
+}
+
+.notes main form .form-text{
+    resize: none;
+}
+
+.notes main form .form-info .c-bottom{
+    margin-bottom: 10vw;
+}
+
+@media(min-width:768px){
+
+    .notes{
+        overflow: hidden;
+    }
+
+    .notes main{
+        width: 80%;
+        margin: auto;
+    }
+
+    .notes main .titulo{
+        margin: 2vw 0;
+    }
+
+    .notes main form{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .notes main form .d-radio{
+        width: 60%;
+    }
+
+    .notes main form .form-info{
+        width: 40%;
+    }
+
+    .notes main form .t-check{
+        margin-bottom: 1.5vw;
+    }
+
+    .notes main form .c-check{
+        width: 25%;
+        display: inline-block;
+    }
+
+    .notes main form .c-check .checkButton{
+        height: 6vw;
+    }
+
+    .notes main form .c-check .checkLabel{
+        height: 100%;
+    }
+}
